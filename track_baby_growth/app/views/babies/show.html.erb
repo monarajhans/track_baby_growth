@@ -11,14 +11,29 @@
 </p>
 
 <p>
-  <strong>Height:</strong>
+  <strong>Height (in inches):</strong>
   <%= @baby.height %>
 </p>
 
 <p>
-  <strong>Weight:</strong>
+  <strong>Weight (in lbs):</strong>
   <%= @baby.weight %>
 </p>
 
 <%= link_to 'Edit', edit_baby_path(@baby) %> |
 <%= link_to 'Back', babies_path %>
+
+<p>Woo hoo! The baby has exceeded the height of these animals :)</p>
+<table border="1">
+  <tr>
+    <th>Animal</th>
+    <th>Height (in inches)</th>
+  </tr>
+  <% @baby_animals.each do |animal| %>
+  <tr>
+ 	<% animal.each do |animal_height| %>
+ 		<td><%= animal_height %></td>
+ 	<% end %>
+  <% end %>
+  </tr>
+</table>

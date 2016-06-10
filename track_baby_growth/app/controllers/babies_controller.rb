@@ -10,6 +10,18 @@ class BabiesController < ApplicationController
   # GET /babies/1
   # GET /babies/1.json
   def show
+    @baby_animals = []
+    @animals = FavoriteAnimal.animals
+    for animal in @animals
+      for animal_height in animal
+       if animal_height.is_a? Numeric
+        if animal_height <= @baby.height 
+          @baby_animals.push(animal)
+        end
+        end
+      end
+    end
+    Rails.logger.info @baby_animals
   end
 
   # GET /babies/new
