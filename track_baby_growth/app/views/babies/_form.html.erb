@@ -18,14 +18,17 @@
   <div class="field">
     <%= f.label :age %><br>
     <%= f.number_field :age %>
+    <%= f.select(:age, options_for_select([['Months', 'Months'], ['Years', 'Years']])) %>
   </div>
   <div class="field">
     <%= f.label :height %><br>
     <%= f.number_field :height %>
+    <%= f.select(:height, options_for_select([['Inches', 'Inches'],['Centimeter', 'Centimeter'], ['Feet', 'Feet']])) %>
   </div>
   <div class="field">
     <%= f.label :weight %><br>
     <%= f.number_field :weight %>
+    <%= f.select(:weight, options_for_select([['Lbs', 'Lbs'], ['Kgs', 'Kgs']])) %>
   </div>
   <div class="actions">
     <%= f.submit %>
