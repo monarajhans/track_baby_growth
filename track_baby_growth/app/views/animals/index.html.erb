@@ -1,0 +1,13 @@
+<h1>Listing Animals</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @animals.each do |animal| %>
+    <tr>
+      <td><%= link_to "#{animal.name}", animal_path(animal.id, metric: true) %></td>
+    </tr>
+  <% end %>
+</table>
