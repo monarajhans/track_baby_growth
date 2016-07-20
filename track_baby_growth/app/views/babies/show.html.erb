@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
+<h3 align="center"><b><%= link_to "Metric", baby_path(@baby.id, metric: true) %>
+<%= link_to "Imperial", baby_path(@baby.id, metric: false) %></b></h3>
 
+<table border="3px solid black" align="center">
+	<tr>
+<td style="width:275px; padding-left: 10px;">
 <p>
-  <strong>Name:</strong>
-  <%= @baby.name %>
+	<strong><%= @baby.first_name %></strong>
+	<strong><%= @baby.last_name %></strong>
+	<p>
+		<% if not @metric %>
+			Imperial: <br>
+				<%= @baby.first_name %>'s height: <strong><%= @height %></strong> in <br>
+				<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> lbs <br>
+				<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> F degrees<br>
+		<% else %>
+	      	Metric: <br>
+	      		<%= @baby.first_name %>'s height: <strong><%= @height %></strong> cm <br>
+	      		<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> kg <br>
+	      		<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> C degrees<br>
+	     <% end %>
+	</p>
 </p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @baby.age %>
-</p>
-
-<p>
-  <strong>Height (in inches):</strong>
-  <%= @baby.height %>
-</p>
-
-<p>
-  <strong>Weight (in lbs):</strong>
-  <%= @baby.weight %>
-</p>
-
-<%= link_to 'Edit', edit_baby_path(@baby) %> |
-<%= link_to 'Back', babies_path %>
-
-<p>Woo hoo! The baby has exceeded the height of these animals :)</p>
-<table border="1">
-  <tr>
-    <th>Animal</th>
-    <th>Height (in inches)</th>
-  </tr>
-  <% @baby_animals.each do |animal| %>
-  <tr>
- 	<% animal.each do |animal_height| %>
- 		<td><%= animal_height %></td>
- 	<% end %>
-  <% end %>
-  </tr>
+</td>
+<td style="width:850px; padding-left: 25px;">
+<% @animals.each do |animal| %>
+	<%= render :partial => "animals/show_animal", :locals => { :a => animal} %>
+<% end %>
+<br>
+</td>
+</tr>
 </table>
+
+<br>
+<h3 align="center"><b><%= link_to "Go Home", root_path %>
+<%= link_to "Babies Index", babies_path %></b></h3>
