@@ -1,10 +1,12 @@
-<h1>Listing Babies</h1>
+<div class='container'>
+<h1>Oh my! You have so many babies to keep track of. God help you! </h1>
  
-<h7 align="center"><b><%= link_to "Go Home", root_path %></b></h7>
+<h4 align="center" id='goHome'><b><%= link_to "Go Home", root_path %></b></h4>
 
-<table>
+<table class='table-striped'>
   <tr>
     <th>First Name / Last Name</th>
+    <th>Action</th>
   </tr>
  
   <% @babies.each do |baby| %>
@@ -14,3 +16,4 @@
     </tr>
   <% end %>
 </table>
+</div>

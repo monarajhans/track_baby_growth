@@ -1,36 +1,40 @@
-<h3 align="center"><b><%= link_to "Metric", baby_path(@baby.id, metric: true) %>
-<%= link_to "Imperial", baby_path(@baby.id, metric: false) %></b></h3>
-
-<table border="3px solid black" align="center">
-	<tr>
-<td style="width:275px; padding-left: 10px;">
-<p>
-	<strong><%= @baby.first_name %></strong>
-	<strong><%= @baby.last_name %></strong>
+<div class='container'>
+	<div class='topIndexes'>
+		<h3 align="center"><b><%= link_to "Metric", baby_path(@baby.id, metric: true) %>
+		<%= link_to "Imperial", baby_path(@baby.id, metric: false) %></b></h3>
+	</div>
+	<table border="3px solid black" align="center">
+		<tr>
+	<td style="width:275px; padding-left: 10px;">
 	<p>
-		<% if not @metric %>
-			Imperial: <br>
-				<%= @baby.first_name %>'s height: <strong><%= @height %></strong> in <br>
-				<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> lbs <br>
-				<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> F degrees<br>
-		<% else %>
-	      	Metric: <br>
-	      		<%= @baby.first_name %>'s height: <strong><%= @height %></strong> cm <br>
-	      		<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> kg <br>
-	      		<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> C degrees<br>
-	     <% end %>
+		<strong><%= @baby.first_name %></strong>
+		<strong><%= @baby.last_name %></strong>
+		<p>
+			<% if not @metric %>
+				Imperial: <br>
+					<%= @baby.first_name %>'s height: <strong><%= @height %></strong> in <br>
+					<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> lbs <br>
+					<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> F degrees<br>
+			<% else %>
+		      	Metric: <br>
+		      		<%= @baby.first_name %>'s height: <strong><%= @height %></strong> cm <br>
+		      		<%= @baby.first_name %>'s weight: <strong><%= @weight %></strong> kg <br>
+		      		<%= @baby.first_name %>'s temperature: <strong><%= @temperature %></strong> C degrees<br>
+		     <% end %>
+		</p>
 	</p>
-</p>
-</td>
-<td style="width:850px; padding-left: 25px;">
-<% @animals.each do |animal| %>
-	<%= render :partial => "animals/show_animal", :locals => { :a => animal} %>
-<% end %>
+	</td>
+	<td style="width:15em; padding-left: 25px;">
+	<% @animals.each do |animal| %>
+		<%= render :partial => "animals/show_animal", :locals => { :a => animal} %>
+	<% end %>
+	<br>
+	</td>
+	</tr>
+	</table>
 <br>
-</td>
-</tr>
-</table>
-
-<br>
-<h3 align="center"><b><%= link_to "Go Home", root_path %>
-<%= link_to "Babies Index", babies_path %></b></h3>
+	<div class='bottomIndexes'>
+		<h3 align="center"><b><%= link_to "Go Home", root_path %>
+		<%= link_to "Babies Index", babies_path %></b></h3>
+	</div>
+</div>

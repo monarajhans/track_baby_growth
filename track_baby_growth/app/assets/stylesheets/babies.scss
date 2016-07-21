@@ -1,0 +1,44 @@
+.container{
+	text-align: center;
+	background: url('baby1.jpg') no-repeat center;
+	height: 56em;
+	width: 75em;
+	background-size: 75em;
+
+	table{
+		border: 1px solid grey;
+		border-collapse: collapse;
+		margin: 0 auto;
+		margin-top: 3em;
+
+		th, td{
+			border: 1px solid grey;
+			padding: 1em;
+			background: white;
+    		opacity: 0.75;
+    		font-size: 14pt;
+		}
+	}
+
+	.bottomIndexes{
+		margin-top: 30em;
+		a{
+			color:black;
+		}
+	}
+
+	.topIndexes{
+		a{
+			color:black;
+		}
+	}
+}
+
+.animalContainer{
+	@extend .container;
+	background: url('kitten.jpg') no-repeat center;
+	background-size: 85em;
+	a, h1{
+		color:white;
+	}
+}

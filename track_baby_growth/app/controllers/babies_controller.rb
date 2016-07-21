@@ -27,7 +27,7 @@ class BabiesController < ApplicationController
   end
 
   def index
-    @babies = Baby.all
+    @babies = Baby.order(:height).all
   end
 
   def show
@@ -35,6 +35,7 @@ class BabiesController < ApplicationController
     @metric = Unit.is_metric?(params[:metric])
     @height = Unit.get_correct_height(@baby, @metric)
     @weight = Unit.get_correct_weight(@baby, @metric)
+    # @age = Unit.get_correct_age(@baby, @metric)
     @temperature = Unit.get_correct_temperature(@baby, @metric)
     @animals = Animal.all
   end
