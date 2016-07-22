@@ -9,7 +9,7 @@
  
   <% @animals.each do |animal| %>
     <tr>
-      <td><%= link_to "#{animal.name}", animal_path(animal.id, metric: true) %></td>
+      <td style = "color:black;"><%= link_to "#{animal.name}", animal_path(animal.id, metric: true) %></td>
     </tr>
   <% end %>
 </table>
